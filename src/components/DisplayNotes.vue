@@ -1,4 +1,4 @@
-<template>
+<template v-slot:activator="{on, attrs }">
   <div
     class="CreateNew"
     style="
@@ -9,44 +9,72 @@
     "
   >
     <div
-      style="width: 240px; height: 200px; margin: 5px; border: 1px solid black"
-      v-for="note in NoteListArray"
+      style="width: 230px; height: 160px; margin: 5px; border: 0px solid"
+      v-for="note in NoteListArray" 
       :key="note.id"
-    >
-      <div>
-        <span>{{ note.title }}</span>
-      </div>
+      
+         >
+      <v-card :style="{ 'background-color': note.colour}">
 
-      <div>
-        <span>{{ note.description }}</span>
-      </div>
-      <div class="ft">
-        <NoteIcons></NoteIcons>
-      </div>
+        <div style="padding-left: 15px; padding-top: 5px;" :style="{ 'background-color': note.colour}">
+
+          <div @click="setNotedata(note)" @click.stop="showScheduleForm = true">
+            <span>{{ note.title }}</span>
+
+            <div @click="setNotedata(note)">
+              <span>{{ note.description }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="ft">
+          <NoteIcons v-bind:NoteObject="note"></NoteIcons>
+        </div>
+      </v-card>
     </div>
+    <DialogueNote
+      v-bind:NoteData="noteInfo"
+      v-model="showScheduleForm"
+    ></DialogueNote>
   </div>
 </template>
-
 <script>
+import DialogueNote from "@/components/UpdateNote.vue";
 import NoteIcons from "@/components/IconNote.vue";
+
 export default {
   name: "DisplayNotes",
-  components: { NoteIcons },
+  components: { NoteIcons, DialogueNote },
   props: ["NoteListArray"],
-  data: () => ({}),
+
+  data() {
+    return {
+      // id:"",
+      showScheduleForm: false,
+      noteInfo: "",
+    };
+  },
+  methods: {
+    setNotedata(noteObject) {
+      console.log(noteObject);
+      this.noteInfo = noteObject;
+      // this.NotesArray = noteObject.noteObject.notes;
+      //     console.log(this.NotesArray);
+  
+    },
+  },
 };
 </script>
 <style scoped>
 .ft {
   flex-direction: row;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 .CreateNew {
   width: 1000px;
   margin-left: 250px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
-.ic {
+.icone {
   display: flex;
   flex-direction: row;
   justify-content: space-around;

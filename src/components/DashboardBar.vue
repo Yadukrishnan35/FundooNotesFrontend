@@ -19,42 +19,33 @@
           ></v-text-field>
         </v-col>
 
-        <v-spacer>
-          <div class="right_side_logos">
-            <img
-              style="margin-right: 30px"
-              class="ma-3"
-              :src="require('../assets/refresh.svg')"
-            />
-            <img
-              style="margin-right: 30px"
-              class="ma-3"
-              :src="require('../assets/view.svg')"
-            />
-            <img
-              style="margin-right: 30px"
-              class="ma-3"
-              :src="require('../assets/settings.svg')"
-            />
-          </div>
-        </v-spacer>
         <div class="right_logos">
-          <v-spacer>
-            <img
-              style="width: 30px"
-              class="ma-3"
-              :src="require('../assets/apps.svg')"
-            />
-          </v-spacer>
-        </div>
-        <div>
-          <v-spacer>
-            <img
-              style="width: 30px"
-              class="ma-3"
-              :src="require('../assets/account circle.svg')"
-            />
-          </v-spacer>
+          <img
+            style="height: 30px"
+            class="ma-3"
+            :src="require('../assets/refresh.svg')"
+          />
+          <img
+            style="height: 30px"
+            class="ma-3"
+            :src="require('../assets/view.svg')"
+          />
+          <img
+            style="height: 30px"
+            class="ma-3"
+            :src="require('../assets/settings.svg')"
+          />
+          <img
+            style="height: 30px"
+            class="ma-3"
+            :src="require('../assets/apps.svg')"
+          />
+
+          <img
+            style="height: 30px"
+            class="ma-3"
+            :src="require('../assets/account circle.svg')"
+          />
         </div>
       </v-app-bar>
     </v-card>
@@ -143,10 +134,11 @@ export default {
   padding-top: 100px;
 }
 .right_logos {
-  width: 70px;
+  /* width: 60px; */
+  opacity: 0.5;
+
   display: flex;
   flex-direction: row;
-  left: 100%;
+  left: 50%;
 }
-
 </style>

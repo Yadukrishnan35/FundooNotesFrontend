@@ -11,5 +11,8 @@ export default class AxiosService {
   getService(url, token, httpAuthOptions) {
     return axios.get(BASE_URL + url, token && httpAuthOptions)
   }
-
+  //deleteService
+  deleteService(url, token, httpAuthOptions) {
+    return axios.delete(BASE_URL + url, token && httpAuthOptions)
+  }
 }

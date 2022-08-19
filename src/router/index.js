@@ -8,7 +8,7 @@ import ResetPasswordView from '../views/ResetPasswordView.vue'
 import DashboardView from '../views/DashboardView.vue'
 //import CreateNoteView from '../views/CreateNoteView'
 import GetAllNotes from '../views/GetNote.vue'
-
+ import UpdateNoteView from '../views/UpdateNoteView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -38,6 +38,13 @@ const routes = [
   },
 
   {
+    path: '/update',
+    name: 'UpdateNoteView',
+    component: UpdateNoteView
+  },
+
+
+  {
     path: '/forget',
     name: 'ForgetPasswordView',
     component: ForgetPasswordView
@@ -49,11 +56,7 @@ const routes = [
     component: ResetPasswordView
 
   },
-  // {
-  //   name: 'CreateNoteView',
-  //   path: '/create',
-  //   component: CreateNoteView
-  //   },
+
   {
     path: '/dashboard',
     name: 'DashboardView',

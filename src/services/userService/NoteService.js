@@ -27,6 +27,54 @@ export default class NoteService {
                 'Content-type': 'application/json'
             }
         }
-        return AxiosService.prototype.getService('getAllNotes', true, httpHeaders)
+         return AxiosService.prototype.getService('getAllNotes', true, httpHeaders)
     }
+
+     UpdateNotes(reqData) {
+        let token = localStorage.getItem('token')
+        console.log(token)
+        let authOption = {
+          headers: {
+            'Authorization': "Bearer " +token, 
+            'content-Type': 'application/json'
+          }
+        }
+        return AxiosService.prototype.postService('updateNoteById', reqData, true, authOption)
+      }
+
+      deleteNote(reqData) {
+        let token = localStorage.getItem('token')
+        console.log(token)
+        let authOption = {
+          headers: {
+            'Authorization': "Bearer " +token, 
+            'content-Type': 'application/json'
+          }
+        }
+        return AxiosService.prototype.postService('trashNoteById', reqData, true, authOption)
+      }
+
+      archiveNote(reqData) {
+        let token = localStorage.getItem('token')
+        console.log(token)
+        let authOption = {
+          headers: {
+            'Authorization': "Bearer " +token, 
+            'content-Type': 'application/json'
+          }
+        }
+        return AxiosService.prototype.postService('archivenote', reqData, true, authOption)
+      }
+
+      colourNote(reqData) {
+        let token = localStorage.getItem('token')
+        console.log(token)
+        let authOption = {
+          headers: {
+            'Authorization': "Bearer " +token, 
+            'content-Type': 'application/json'
+          }
+        }
+        return AxiosService.prototype.postService('colournote', reqData, true, authOption)
+      }
 }

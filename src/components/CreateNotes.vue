@@ -59,7 +59,7 @@
             hide-details
           ></v-text-field>
           <div class="ft">
-            <NoteIcons></NoteIcons>
+            <CreateNoteIcons></CreateNoteIcons>
           </div>
           <div class="cls">
             <v-btn small color="white" elevation="0" @click="CreateNotes()"
@@ -73,10 +73,10 @@
 </template>
 <script>
 import NoteService from "@/services/userService/NoteService";
-import NoteIcons from "@/components/IconNote.vue";
+import CreateNoteIcons from "@/components/CreateNoteIcons.vue";
 export default {
   name: "CreateNotesComponent",
-  components: { NoteIcons },
+  components: { CreateNoteIcons },
   data() {
     return {
       noteDetails: {
@@ -156,6 +156,6 @@ export default {
 }
 .cls {
   padding-left: 400px;
-  margin-top: -20px;
+  margin-top: -40px;
 }
 </style>
